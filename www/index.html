@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/cssua.min.js"></script>
+  <script>
+    function calculate() {
+        var month = $("#myname").val();
+        var day = $("#myage").val();
+        
+        //var birthyear = new Date().getFullYear() - myage;
+        //var text = myname + " was born in " + birthyear + "!";
+        
+        switch(Number(month)){
+          case 1:
+            if(day <= 19 && day > 0){
+              text = "やぎ座";
+            }else if(day >= 20 && day <= 31){
+              text = "みずがめ座";
+            }else{
+              text = "日付がおかしいです。";
+            }
+            break;
+
+          case 2:
+            if(day <= 18 && day > 0){
+              text = "みずがめ座";
+            }else if(day >= 19 && day <= 29){
+              text = "うお座";
+            }else{
+              text = "日付がおかしいです。";
+            }
+            break;
+
+          case 3:
+            if(day <= 20 && day > 0){
+              text = "うお座";
+            }else if(day >= 21 && day <= 31){
+              text = "おひつじ座";
+            }else{
+              text = "日付がおかしいです。";
+            }
+            break;
+
+          case 4:
+            if(day <= 19 && day > 0){
+              text = "おひつじ座";
+            }else if(day >= 20 && day <= 30){
+              text = "おうし座";
+            }else{
+              text = "日付がおかしいです。";
+            }
+            break;
+
+          case 5:
+            if(day <= 20 && day > 0){
+              text = "おうし座";
+            }else if(day >= 21 && day <= 31){
+              text = "ふたご座";
+            }else{
+              text = "日付がおかしいです。";
+            }
+            break;
+
+          case 6:
+            if(day <= 21 && day > 0){
+              text = "ふたご座";
+            }else if(day >= 22 && day <= 30){
+              text = "かに座";
+            }else{
+              text = "日付がおかしいです。"
+            } 
+            break;
+
+          case 7:
+            if(day <= 22 && day > 0){
+              text = "かに座";
+            }else if(day >= 23 && day <= 31){
+              text = "しし座";
+            }else{
+              text = "日付がおかしいです。";
+            } 
+            break;
+
+          case 8:
+            if(day <= 22 && day > 0){
+              text = "しし座";
+            }else if(day >= 23 && day <= 31){
+              text = "おとめ座";
+            }else{
+              text = "日付がおかしいです。";
+            }
+            break;
+
+          case 9:
+            if(day <= 22 && day > 0){
+              text = "おとめ座";
+            }else if(day >= 23 && day <= 30){
+              text = "てんびん座";
+            }else{
+              text = "日付がおかしいです。";
+            }
+            break;
+
+          case 10:
+            if(day <= 23 && day > 0){
+              text = "てんびん座";
+            }else if(day >= 24 && day <= 31){
+              text = "さそり座";
+            }else{
+              text = "日付がおかしいです。";
+            }
+            break;
+
+          case 11:
+            if(day <= 22 && day > 0){
+              text = "さそり座";
+            }else if(day >= 23 && day <= 30){
+              text = "いて座";
+            }else{
+              text = "日付がおかしいです。";
+            }
+            break;
+
+          case 12:
+            if(day <= 21 && day > 0){
+              text = "いて座";
+            }else if(day >= 22 && day <= 31){
+              text = "やぎ座";
+            }else{
+              text = "日付がおかしいです。";
+            }
+            break;
+          
+          default:
+            text = "そんな月ないよ"
+        }
+
+        //navigator.notification.alert(text, null, "Welcome to Monaca！");
+        alert(text);
+    }
+  </script>
+</head>
+<body>
+  <div data-role="page" id="TopPage"> 
+    <header data-role="header" data-position="fixed" data-theme="c">
+      <h1>星空判定</h1>
+    </header>
+      <section data-role="content">
+
+        月
+        <input type="text" id="myname" class="input-text">
+        
+        日
+        <input type="text" id="myage" class="input-text">
+
+        <a class="button" onclick="calculate();">判定!</a>
+    </section>
+  </div> 
+</body>
+</html>
