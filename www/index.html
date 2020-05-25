@@ -10,9 +10,9 @@
   <script src="js/cssua.min.js"></script>
   <script>
     function calculate() {
-        var month = $("#myname").val();
-        var day = $("#myage").val();
-        
+        var month = $("#mymonth").val();
+        var day = $("#myday").val();
+        var j = true;
         //var birthyear = new Date().getFullYear() - myage;
         //var text = myname + " was born in " + birthyear + "!";
         
@@ -23,7 +23,8 @@
             }else if(day >= 20 && day <= 31){
               text = "みずがめ座";
             }else{
-              text = "日付がおかしいです。";
+              text = "";
+              j = false;
             }
             break;
 
@@ -33,7 +34,8 @@
             }else if(day >= 19 && day <= 29){
               text = "うお座";
             }else{
-              text = "日付がおかしいです。";
+              text = "";
+              j = false;
             }
             break;
 
@@ -43,7 +45,8 @@
             }else if(day >= 21 && day <= 31){
               text = "おひつじ座";
             }else{
-              text = "日付がおかしいです。";
+              text = "";
+              j = false;
             }
             break;
 
@@ -53,7 +56,8 @@
             }else if(day >= 20 && day <= 30){
               text = "おうし座";
             }else{
-              text = "日付がおかしいです。";
+              text = "";
+              j = false;
             }
             break;
 
@@ -63,7 +67,8 @@
             }else if(day >= 21 && day <= 31){
               text = "ふたご座";
             }else{
-              text = "日付がおかしいです。";
+              text = "";
+              j = false;
             }
             break;
 
@@ -73,7 +78,8 @@
             }else if(day >= 22 && day <= 30){
               text = "かに座";
             }else{
-              text = "日付がおかしいです。"
+              text = ""
+              j = false;
             } 
             break;
 
@@ -83,7 +89,8 @@
             }else if(day >= 23 && day <= 31){
               text = "しし座";
             }else{
-              text = "日付がおかしいです。";
+              text = "";
+              j = false;
             } 
             break;
 
@@ -93,7 +100,8 @@
             }else if(day >= 23 && day <= 31){
               text = "おとめ座";
             }else{
-              text = "日付がおかしいです。";
+              text = "";
+              j = false;
             }
             break;
 
@@ -103,7 +111,8 @@
             }else if(day >= 23 && day <= 30){
               text = "てんびん座";
             }else{
-              text = "日付がおかしいです。";
+              text = "";
+              j = false;
             }
             break;
 
@@ -113,7 +122,8 @@
             }else if(day >= 24 && day <= 31){
               text = "さそり座";
             }else{
-              text = "日付がおかしいです。";
+              text = "";
+              j = false;
             }
             break;
 
@@ -123,7 +133,8 @@
             }else if(day >= 23 && day <= 30){
               text = "いて座";
             }else{
-              text = "日付がおかしいです。";
+              text = "";
+              j = false;
             }
             break;
 
@@ -133,16 +144,23 @@
             }else if(day >= 22 && day <= 31){
               text = "やぎ座";
             }else{
-              text = "日付がおかしいです。";
+              text = "";
+              j = false;
             }
             break;
           
           default:
-            text = "そんな月ないよ"
+            text = ""
+            j = false;
         }
 
         //navigator.notification.alert(text, null, "Welcome to Monaca！");
-        alert(text);
+        /*alert(text);*/
+        if(j == true){
+          $("#result").text("あなたの星座は"+text+"です");
+        }else{
+          $("#result").text("お前馬鹿か！そんな日付ないだろ。");
+        }
     }
   </script>
 </head>
@@ -153,13 +171,32 @@
     </header>
       <section data-role="content">
 
-        月
-        <input type="text" id="myname" class="input-text">
+
+        <!-- <input type="text" id="mymonth" class="input-text"> -->
+        <div class="group">
+          <label for="text1">月</label>
+          <div class="search_bar">
+            <i class="fas fa-search search_icon"></i>
+            <input id="mymonth" type="text" placeholder="誕生した月を入力してください">
+            <i class="fas fa-times search_icon"></i>
+          </div>
+        </div>
         
-        日
-        <input type="text" id="myage" class="input-text">
+  
+        <div class="group">
+          <label for="text2">日</label>
+          <div class="search_bar">
+            <i class="fas fa-search search_icon"></i>
+            <input id="myday" type="text" placeholder="誕生した日を入力してください">
+            <i class="fas fa-times search_icon"></i>
+          </div>
+        </div>
+        <!-- <input type="text" id="myday" class="input-text"> -->
 
         <a class="button" onclick="calculate();">判定!</a>
+
+        <div id = "result"></div>
+
     </section>
   </div> 
 </body>
